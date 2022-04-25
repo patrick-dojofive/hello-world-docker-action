@@ -7,4 +7,4 @@ jobs:
     name: Can I choose mac of docker?
     steps:
       - name: Run test
-        run: docker run -it --mac-address 82:ec:2b:28:a8:01 -v $PWD:/srv -w/srv alpine
+        run: docker run --mac-address 82:ec:2b:28:a8:01 -v $PWD:/srv -w/srv alpine
