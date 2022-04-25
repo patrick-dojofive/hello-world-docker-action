@@ -18,3 +18,13 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+  control_mac_job:
+    runs-on: ubuntu-latest
+    name: Can I choose mac of docker?
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+      - name: Build docker images
+        run: docker build -t local < .devcontainer/Dockerfile
+      - name: Run tests
+        run: docker run -it -v $PWD:/srv -w/srv local make test
